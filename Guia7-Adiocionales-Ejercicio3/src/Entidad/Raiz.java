@@ -49,6 +49,9 @@ public class Raiz {
         this.c = c;
     }
     
+    
+    
+    
     public double getDiscriminante(){
         return (Math.pow(this.getB(),2)-(4*a*c));
     }
