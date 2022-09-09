@@ -24,10 +24,14 @@ public class Ejercicio10 {
         System.out.print("Array A: ");mostrarArreglo(arrayA);
         //ordenarArreglo(arrayA);
         Arrays.sort(arrayA);
+        
         System.out.println("");
         System.out.print("Array A: ");mostrarArreglo(arrayA);
-        llenarArregloB(arrayB,arrayA , 0.5);
+        
+        //llenarArregloB(arrayB,arrayA);
+        arrayB = Arrays.copyOf(arrayA, 20);
         Arrays.fill(arrayB, arrayB.length/2, arrayB.length, 0.5);
+        
         System.out.println("");
         System.out.print("Array B: ");mostrarArreglo(arrayB);
         
@@ -41,25 +45,25 @@ public class Ejercicio10 {
         }
     }
     
-    public static void ordenarArreglo(double[] a){
-        for (int i=0; i<a.length; i++){
-            for (int j = 0; j<a.length-1; j++){
-                if (a[j]>a[j+1]){
-                    double aux = a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = aux;
-                }
-            }
-        }
-    }
+//    public static void ordenarArreglo(double[] a){
+//        for (int i=0; i<a.length; i++){
+//            for (int j = 0; j<a.length-1; j++){
+//                if (a[j]>a[j+1]){
+//                    double aux = a[j];
+//                    a[j] = a[j+1];
+//                    a[j+1] = aux;
+//                }
+//            }
+//        }
+//    }
     
     
     
-    public static void llenarArregloB(double[] b, double[] a, double filler){
-        for(int i=0; i<10; i++){
-            b[i] = a[i];
-        }      
-    }
-    
+//    public static void llenarArregloB(double[] b, double[] a){
+//        for(int i=0; i<10; i++){
+//            b[i] = a[i];
+//        }      
+//    }
+//    
     
 }
