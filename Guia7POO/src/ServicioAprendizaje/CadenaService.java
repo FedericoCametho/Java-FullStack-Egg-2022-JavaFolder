@@ -50,4 +50,18 @@ public class CadenaService {
         return frase.length()==nuevaFrase.length();
     }
     
+    public void unirFrase(Cadena cadena, String frase2){
+        System.out.println(cadena.getFrase().concat(frase2));
+    }
+    
+    public void reemplazar(Cadena cadena, String letra){
+        if(cadena.getFrase().contains("a")){
+            System.out.println(cadena.getFrase().replace("a", letra));
+        }
+    }
+    
+    public boolean contiene(Cadena cadena, String letra){
+        return cadena.getFrase().contains(letra);
+    }
+    
 }

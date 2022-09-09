@@ -8,6 +8,7 @@ package Servicio;
 import Entidad.Ahorcado;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -33,12 +34,14 @@ public class AhorcadoService {
         int i = 0;
         char[] palabra = a.getPalabra();
         ArrayList<Integer> posiciones = new ArrayList<Integer>();
-        while (i<palabra.length){
-            if (palabra[i] == letra){
-                posiciones.add(i);
-                encontre = true;
+        if (Arrays.toString(palabra).contains(""+letra)){
+            while (i<palabra.length){
+                if (palabra[i] == letra){
+                    posiciones.add(i);
+                    encontre = true;
+                }
+                i++;
             }
-            i++;
         }
         if (encontre){
             int limite = posiciones.toArray().length;

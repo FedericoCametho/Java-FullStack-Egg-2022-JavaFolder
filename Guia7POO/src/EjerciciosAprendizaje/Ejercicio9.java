@@ -22,7 +22,7 @@ public class Ejercicio9 {
         System.out.println("Mayor: "+m.devolverMayor());
         System.out.println("Calcular Potencia: "+ m.calcularPotencia());
         System.out.println("Calcular Raiz: "+ m.calcularRaiz());
-        
+             
     }
     
 }
