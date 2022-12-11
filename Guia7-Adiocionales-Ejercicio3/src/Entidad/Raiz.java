@@ -48,9 +48,7 @@ public class Raiz {
     public void setC(double c) {
         this.c = c;
     }
-    
-    
-    
+
     
     public double getDiscriminante(){
         return (Math.pow(this.getB(),2)-(4*a*c));
@@ -64,17 +62,14 @@ public class Raiz {
         return this.getDiscriminante()==0;
     }
     
-    public void obtenerRaices(){
-        if (this.tieneRaices()){
-            System.out.println("1er Raiz = "+ this.resolverRaizPositivo());
-            System.out.println("2nda Raiz = "+ this.resolverRaizNegativo());
-        }
+    private void obtenerRaices(){
+        System.out.println("1er Raiz = "+ this.resolverRaizPositivo());
+        System.out.println("2nda Raiz = "+ this.resolverRaizNegativo());
+
     }
     
-    public void obtenerRaiz(){
-        if (this.tieneRaiz()){
-            System.out.println("Unica Raiz = "+ this.resolverRaizPositivo());
-        }
+    private void obtenerRaiz(){
+        System.out.println("Unica Raiz = "+ this.resolverRaizPositivo());
     }
     
     public void calcular(){

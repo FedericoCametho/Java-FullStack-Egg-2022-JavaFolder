@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas">
+  <ClassDiagramComponents>
+    <Class name="Cliente" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" isAbstract="true" xPosition="7.0" yPosition="10.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="telefono" type="Integer" visibility="private"/>
+        <Field name="registroLlamadas" type="List&lt;Llamada&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dir"/>
+          <Argument type="Integer" name="tel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarLlamadaAlRegistro" returnType="void" visibility="public">
+          <Argument type="Llamada" name="call"/>
+        </Method>
+        <Method name="getTelefono" returnType="Integer" visibility="public"/>
+        <Method name="getRegistroLlamadas" returnType="List&lt;Llamada&gt;" visibility="public"/>
+        <Method name="facturarLlamadasEnPeriodo" returnType="double" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DateLapse" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="1750.0" yPosition="324.0">
+      <Fields>
+        <Field name="from" type="LocalDate" visibility="private"/>
+        <Field name="to" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFrom" returnType="LocalDate" visibility="public"/>
+        <Method name="setFrom" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="from"/>
+        </Method>
+        <Method name="getTo" returnType="LocalDate" visibility="public"/>
+        <Method name="setTo" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="to"/>
+        </Method>
+        <Method name="sizeInDays" returnType="int" visibility="public"/>
+        <Method name="includesDate" returnType="boolean" visibility="public">
+          <Argument type="LocalDate" name="other"/>
+        </Method>
+        <Method name="overlaps" returnType="boolean" visibility="public">
+          <Argument type="DateLapse" name="otroPeriodo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Factura" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="577.0" yPosition="-2.0">
+      <Fields>
+        <Field name="periodo" type="DateLapse" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="fechaFacturacion" type="LocalDate" visibility="private"/>
+        <Field name="montoTotal" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+          <Argument type="Cliente" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="facturar" returnType="double" visibility="private">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="getMontoTotal" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Llamada" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" isAbstract="true" xPosition="1111.0" yPosition="35.0">
+      <Fields>
+        <Field name="fechaInicio" type="LocalDate" visibility="private"/>
+        <Field name="horaInicio" type="LocalTime" visibility="private"/>
+        <Field name="duracion" type="int" visibility="private"/>
+        <Field name="emisor" type="Integer" visibility="private"/>
+        <Field name="receptor" type="Integer" visibility="private"/>
+        <Field name="tarifa" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFechaInicio" returnType="LocalDate" visibility="public"/>
+        <Method name="getHoraInicio" returnType="LocalTime" visibility="public"/>
+        <Method name="getDuracion" returnType="int" visibility="public"/>
+        <Method name="getEmisor" returnType="Integer" visibility="public"/>
+        <Method name="setTarifa" returnType="void" visibility="public">
+          <Argument type="double" name="tarifa"/>
+        </Method>
+        <Method name="getTarifa" returnType="double" visibility="public"/>
+        <Method name="isInDateLapse" returnType="boolean" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+        <Method name="getCosto" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LlamadaInternacional" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="1228.0" yPosition="625.0">
+      <Fields>
+        <Field name="paisOrigen" type="String" visibility="private"/>
+        <Field name="paisDestino" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="LlamadaInterurbana" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="802.0" yPosition="460.0">
+      <Fields>
+        <Field name="distancia" type="double" visibility="private"/>
+        <Field name="costoConexion" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+          <Argument type="double" name="distancia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="ajustarTarifa" returnType="double" visibility="private">
+          <Argument type="double" name="distancia"/>
+        </Method>
+        <Method name="getCosto" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LlamadaLocal" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Persona" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="1909.0" yPosition="718.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getDni" returnType="String" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="getNombreCompleto" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonaFisica" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="20.0" yPosition="702.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dir"/>
+          <Argument type="Integer" name="tel"/>
+          <Argument type="int" name="dni"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="facturarLlamadasEnPeriodo" returnType="double" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersonaJuridica" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="cuil" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dir"/>
+          <Argument type="Integer" name="tel"/>
+          <Argument type="int" name="cuil"/>
+          <Argument type="String" name="tipo"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Sistema" package="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas" visibility="public" xPosition="381.0" yPosition="765.0">
+      <Fields>
+        <Field name="listaTelAsignados" type="List&lt;Integer&gt;" visibility="private"/>
+        <Field name="listaTelDisponibles" type="List&lt;Integer&gt;" visibility="private"/>
+        <Field name="listaClientes" type="List&lt;Cliente&gt;" visibility="private"/>
+        <Field name="registroLlamadas" type="List&lt;Llamada&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="agregarTelefonoDisponible" returnType="void" visibility="public">
+          <Argument type="Integer" name="tel"/>
+        </Method>
+        <Method name="altaClientePersonaFisica" returnType="Cliente" visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dir"/>
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="altaClientePersonaJuridica" returnType="Cliente" visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dir"/>
+          <Argument type="int" name="cuit"/>
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="buscarCliente" returnType="Cliente" visibility="private">
+          <Argument type="Cliente" name="c"/>
+        </Method>
+        <Method name="registrarLlamadaLocal" returnType="Llamada" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+        </Method>
+        <Method name="registrarLlamadaInterurbana" returnType="Llamada" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+          <Argument type="int" name="distancia"/>
+        </Method>
+        <Method name="registrarLlamadaInternacional" returnType="Llamada" visibility="public">
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="LocalTime" name="hora"/>
+          <Argument type="int" name="duracion"/>
+          <Argument type="Integer" name="emisor"/>
+          <Argument type="Integer" name="receptor"/>
+          <Argument type="String" name="origen"/>
+          <Argument type="String" name="destino"/>
+        </Method>
+        <Method name="facturarLlamadas" returnType="Factura" visibility="public">
+          <Argument type="Cliente" name="c"/>
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Factura" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.LlamadaLocal" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada"/>
+    <HasRelation name="listaClientes" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Sistema" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Cliente&gt;"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.LlamadaInterurbana" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada"/>
+    <HasRelation name="registroLlamadas" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Sistema" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Llamada&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.PersonaFisica" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="periodo" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Factura" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cliente" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Factura" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Sistema" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Factura" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.PersonaJuridica" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente"/>
+    <HasRelation name="registroLlamadas" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Llamada&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Sistema" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.PersonaFisica" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.LlamadaInternacional" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Llamada"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Sistema" target="practicas.objetos.uno.ejercicio17_FacturacionDeLlamadas.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

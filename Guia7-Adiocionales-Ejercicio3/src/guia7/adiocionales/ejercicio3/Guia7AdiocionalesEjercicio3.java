@@ -26,7 +26,7 @@ public class Guia7AdiocionalesEjercicio3 {
         r.calcular();
         System.out.println("-----------------------");
         r2.calcular();
-        
+       
     }
     
 }

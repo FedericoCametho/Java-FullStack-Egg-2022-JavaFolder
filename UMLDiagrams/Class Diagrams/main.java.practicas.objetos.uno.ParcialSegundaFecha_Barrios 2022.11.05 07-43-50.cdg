@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.practicas.objetos.uno.ParcialSegundaFecha_Barrios">
+  <ClassDiagramComponents>
+    <Class name="Administrador" package="practicas.objetos.uno.ParcialSegundaFecha_Barrios" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="barrios" type="List&lt;Barrio&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getBarrios" returnType="List&lt;Barrio&gt;" visibility="public"/>
+        <Method name="getTotalLotes" returnType="int" visibility="public"/>
+        <Method name="getTotalInversion" returnType="double" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public">
+          <Argument type="String" name="ciudad"/>
+        </Method>
+        <Method name="agregarBarrio" returnType="void" visibility="public">
+          <Argument type="Barrio" name="b"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Barrio" package="practicas.objetos.uno.ParcialSegundaFecha_Barrios" visibility="public" isAbstract="true" xPosition="329.0" yPosition="512.0">
+      <Fields>
+        <Field name="ciudad" type="String" visibility="private"/>
+        <Field name="lotes" type="int" visibility="private"/>
+        <Field name="mejoras" type="List&lt;Mejora&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="c"/>
+          <Argument type="int" name="l"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCiudad" returnType="String" visibility="public"/>
+        <Method name="getLotes" returnType="int" visibility="public"/>
+        <Method name="agregarMejora" returnType="void" visibility="public">
+          <Argument type="Mejora" name="m"/>
+        </Method>
+        <Method name="getMejoras" returnType="List&lt;Mejora&gt;" visibility="public"/>
+        <Method name="calcularCostoFinalPorLote" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="calcularInversion" returnType="double" visibility="public"/>
+        <Method name="getTipo" returnType="String" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="BarrioPopular" package="practicas.objetos.uno.ParcialSegundaFecha_Barrios" visibility="public" xPosition="955.0" yPosition="678.0">
+      <Fields>
+        <Field name="gastosRegistro" type="double" visibility="private"/>
+        <Field name="gastosAgrimensor" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="c"/>
+          <Argument type="int" name="l"/>
+          <Argument type="double" name="gastoA"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoFinalPorLote" returnType="double" visibility="public"/>
+        <Method name="getGastosAgrimensor" returnType="double" visibility="public"/>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mejora" package="practicas.objetos.uno.ParcialSegundaFecha_Barrios" visibility="public" xPosition="666.0" yPosition="108.0">
+      <Fields>
+        <Field name="costo" type="double" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="d"/>
+          <Argument type="double" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCosto" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="NuevaUrbanizacion" package="practicas.objetos.uno.ParcialSegundaFecha_Barrios" visibility="public" xPosition="885.0" yPosition="394.0">
+      <Fields>
+        <Field name="precioTerrenoPrivado" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="c"/>
+          <Argument type="int" name="l"/>
+          <Argument type="double" name="precioTerreno"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularCostoFinalPorLote" returnType="double" visibility="public"/>
+        <Method name="calcularInversion" returnType="double" visibility="public"/>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="getPrecioTerrenoPrivado" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="mejoras" source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Mejora" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Mejora&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Administrador" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Mejora" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.BarrioPopular" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio"/>
+    <IsRelation name="is" source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.NuevaUrbanizacion" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio"/>
+    <HasRelation name="barrios" source="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Administrador" target="practicas.objetos.uno.ParcialSegundaFecha_Barrios.Barrio" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Barrio&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

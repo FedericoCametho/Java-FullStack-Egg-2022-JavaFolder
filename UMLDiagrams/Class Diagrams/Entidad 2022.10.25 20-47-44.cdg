@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidad">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="Entidad" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="mazo" type="List&lt;Carta&gt;" visibility="private"/>
+        <Field name="monton" type="List&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearMazo" returnType="void" visibility="private"/>
+        <Method name="barajar" returnType="void" visibility="public"/>
+        <Method name="siguienteCarta" returnType="Carta" visibility="public"/>
+        <Method name="cartasDisponibles" returnType="int" visibility="public"/>
+        <Method name="darCartas" returnType="ArrayList&lt;Carta&gt;" visibility="public">
+          <Argument type="int" name="num"/>
+        </Method>
+        <Method name="cartasMonton" returnType="List&lt;Carta&gt;" visibility="public"/>
+        <Method name="mostrarBaraja" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="Entidad" visibility="public" xPosition="606.0" yPosition="59.0">
+      <Fields>
+        <Field name="palo" type="String" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="palo"/>
+          <Argument type="int" name="num"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="monton" source="Entidad.Baraja" target="Entidad.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Carta&gt;"/>
+    <UseRelation source="Entidad.Baraja" target="Entidad.Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mazo" source="Entidad.Baraja" target="Entidad.Carta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Carta&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

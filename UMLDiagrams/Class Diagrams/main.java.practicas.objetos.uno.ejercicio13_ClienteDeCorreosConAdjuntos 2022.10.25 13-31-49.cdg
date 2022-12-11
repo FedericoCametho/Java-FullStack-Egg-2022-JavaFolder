@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos">
+  <ClassDiagramComponents>
+    <Class name="Archivo" package="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos" visibility="public" xPosition="51.0" yPosition="482.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="tamanio" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carpeta" package="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos" visibility="public" xPosition="819.0" yPosition="154.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="emails" type="List&lt;Email&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getEmails" returnType="List&lt;Email&gt;" visibility="public"/>
+        <Method name="agregarEmail" returnType="void" visibility="public">
+          <Argument type="Email" name="correo"/>
+        </Method>
+        <Method name="eliminarEmail" returnType="///// AGREGAR AL DIAGRAMA UML boolean" visibility="public">
+          <Argument type="Email" name="correo"/>
+        </Method>
+        <Method name="buscar" returnType="Email" visibility="public">
+          <Argument type="String" name="texto"/>
+        </Method>
+        <Method name="tamanioCarpeta" returnType="//// AGREGAR AL DIAGRAMA UML double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClienteDeCorreo" package="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos" visibility="public" xPosition="288.0" yPosition="13.0">
+      <Fields>
+        <Field name="carpetas" type="List&lt;Carpeta&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getCarpetas" returnType="List&lt;Carpeta&gt;" visibility="public"/>
+        <Method name="crearCarpeta" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="eliminarCarpeta" returnType="boolean" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getInbox" returnType="Carpeta" visibility="public"/>
+        <Method name="buscarCarpeta" returnType="Carpeta" visibility="public">
+          <Argument type="String" name="nombreCarpeta"/>
+        </Method>
+        <Method name="recibir" returnType="void" visibility="public">
+          <Argument type="Email" name="email"/>
+        </Method>
+        <Method name="mover" returnType="void" visibility="public">
+          <Argument type="Email" name="email"/>
+          <Argument type="Carpeta" name="origen"/>
+          <Argument type="Carpeta" name="destino"/>
+        </Method>
+        <Method name="buscar" returnType="Email" visibility="public">
+          <Argument type="String" name="texto"/>
+        </Method>
+        <Method name="espacioOcupado" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Email" package="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos" visibility="public" xPosition="366.0" yPosition="384.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="cuerpo" type="String" visibility="private"/>
+        <Field name="adjuntos" type="List&lt;Archivo&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="titulo"/>
+          <Argument type="String" name="cuerpo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTitulo" returnType="String" visibility="public"/>
+        <Method name="setTitulo" returnType="void" visibility="public">
+          <Argument type="String" name="titulo"/>
+        </Method>
+        <Method name="getCuerpo" returnType="String" visibility="public"/>
+        <Method name="setCuerpo" returnType="void" visibility="public">
+          <Argument type="String" name="cuerpo"/>
+        </Method>
+        <Method name="getAdjuntos" returnType="List&lt;Archivo&gt;" visibility="public"/>
+        <Method name="agregarArchivo" returnType="void" visibility="public">
+          <Argument type="Archivo" name="a"/>
+        </Method>
+        <Method name="quitarArchivo" returnType="boolean" visibility="public">
+          <Argument type="Archivo" name="a"/>
+        </Method>
+        <Method name="getTamanioEmail" returnType="/////// AGREGAR AL DIAGRAMA UML double" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Carpeta" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Email" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="adjuntos" source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Email" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Archivo" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Archivo&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.ClienteDeCorreo" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Email" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.ClienteDeCorreo" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Carpeta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="emails" source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Carpeta" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Email" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Email&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Email" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Archivo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="carpetas" source="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.ClienteDeCorreo" target="practicas.objetos.uno.ejercicio13_ClienteDeCorreosConAdjuntos.Carpeta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Carpeta&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

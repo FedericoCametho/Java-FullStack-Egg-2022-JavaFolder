@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.practicas.objetos.uno.ejercicio15_AlquilerDePropiedades">
+  <ClassDiagramComponents>
+    <Class name="DateLapse" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="from" type="LocalDate" visibility="private"/>
+        <Field name="to" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFrom" returnType="LocalDate" visibility="public"/>
+        <Method name="setFrom" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="from"/>
+        </Method>
+        <Method name="getTo" returnType="LocalDate" visibility="public"/>
+        <Method name="setTo" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="to"/>
+        </Method>
+        <Method name="sizeInDays" returnType="int" visibility="public"/>
+        <Method name="includesDate" returnType="boolean" visibility="public">
+          <Argument type="LocalDate" name="other"/>
+        </Method>
+        <Method name="overlaps" returnType="boolean" visibility="public">
+          <Argument type="DateLapse" name="otroPeriodo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Direccion" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="calle" type="String" visibility="private"/>
+        <Field name="numero" type="int" visibility="private"/>
+        <Field name="piso" type="String" visibility="private"/>
+        <Field name="depto" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="c"/>
+          <Argument type="int" name="num"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="c"/>
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="piso"/>
+          <Argument type="String" name="depto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCalle" returnType="String" visibility="public"/>
+        <Method name="setCalle" returnType="void" visibility="public">
+          <Argument type="String" name="calle"/>
+        </Method>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="int" name="numero"/>
+        </Method>
+        <Method name="getPiso" returnType="String" visibility="public"/>
+        <Method name="setPiso" returnType="void" visibility="public">
+          <Argument type="String" name="piso"/>
+        </Method>
+        <Method name="getDepto" returnType="String" visibility="public"/>
+        <Method name="setDepto" returnType="void" visibility="public">
+          <Argument type="String" name="depto"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Estricta" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularMontoAReembolsar" returnType="double" visibility="public">
+          <Argument type="Reserva" name="r"/>
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Flexible" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularMontoAReembolsar" returnType="double" visibility="public">
+          <Argument type="Reserva" name="r"/>
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Moderada" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calcularMontoAReembolsar" returnType="double" visibility="public">
+          <Argument type="Reserva" name="r"/>
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getDni" returnType="String" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="String" name="dni"/>
+        </Method>
+        <Method name="getNombreCompleto" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="PoliticaCancelacion" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Methods>
+        <Method name="calcularMontoAReembolsar" returnType="double" visibility="public">
+          <Argument type="Reserva" name="r"/>
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Interface>
+    <Class name="Propiedad" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="duenio" type="Usuario" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="descripcion" type="String" visibility="private"/>
+        <Field name="precioPorNoche" type="double" visibility="private"/>
+        <Field name="direccion" type="Direccion" visibility="private"/>
+        <Field name="fechasOcupadas" type="List&lt;DateLapse&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="des"/>
+          <Argument type="double" name="precio"/>
+          <Argument type="Direccion" name="dir"/>
+          <Argument type="Usuario" name="duenio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPrecioPorNoche" returnType="double" visibility="public"/>
+        <Method name="setPrecioPorNoche" returnType="void" visibility="public">
+          <Argument type="double" name="precioPorNoche"/>
+        </Method>
+        <Method name="isBooked" returnType="boolean" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+        <Method name="agregarFechaOcupada" returnType="void" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+        <Method name="eliminarFechaOcupada" returnType="boolean" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+        <Method name="getDuenio" returnType="Usuario" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reserva" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="propiedad" type="Propiedad" visibility="private"/>
+        <Field name="periodo" type="DateLapse" visibility="private"/>
+        <Field name="precio" type="double" visibility="private"/>
+        <Field name="inquilino" type="Usuario" visibility="private"/>
+        <Field name="duenio" type="Usuario" visibility="private"/>
+        <Field name="politica" type="PoliticaCancelacion" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Propiedad" name="p"/>
+          <Argument type="DateLapse" name="periodo"/>
+          <Argument type="Usuario" name="inquilino"/>
+          <Argument type="Usuario" name="duenio"/>
+          <Argument type="PoliticaCancelacion" name="politica"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPrecio" returnType="double" visibility="public"/>
+        <Method name="getPeriodo" returnType="DateLapse" visibility="public"/>
+        <Method name="getInquilino" returnType="Usuario" visibility="public"/>
+        <Method name="getDuenio" returnType="Usuario" visibility="public"/>
+        <Method name="getPropiedad" returnType="Propiedad" visibility="public"/>
+        <Method name="diasCoincidencia" returnType="int" visibility="public">
+          <Argument type="DateLapse" name="fechas"/>
+        </Method>
+        <Method name="calcularMontoADevolver" returnType="double" visibility="public">
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Sistema" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="usuarios" type="List&lt;Usuario&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="buscarUsuario" returnType="Usuario" visibility="private">
+          <Argument type="Usuario" name="u"/>
+        </Method>
+        <Method name="registrarUsuario" returnType="Usuario" visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="Direccion" name="dir"/>
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="registrarPropiedad" returnType="Propiedad" visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="desc"/>
+          <Argument type="double" name="precio"/>
+          <Argument type="Direccion" name="dir"/>
+          <Argument type="Usuario" name="duenio"/>
+        </Method>
+        <Method name="buscarPropiedadesDisponibles" returnType="List&lt;Propiedad&gt;" visibility="public">
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+        </Method>
+        <Method name="hacerReserva" returnType="Reserva" visibility="public">
+          <Argument type="Propiedad" name="prop"/>
+          <Argument type="Usuario" name="inquilino"/>
+          <Argument type="DateLapse" name="periodo"/>
+          <Argument type="PoliticaCancelacion" name="politica"/>
+        </Method>
+        <Method name="eliminarReserva" returnType="boolean" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="obtenerTodasReservasUsuarioInquilino" returnType="List&lt;Reserva&gt;" visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Method>
+        <Method name="obtenerTodasReservasUsuarioPropietario" returnType="List&lt;Reserva&gt;" visibility="public">
+          <Argument type="Usuario" name="u"/>
+        </Method>
+        <Method name="calcularIngresosPropietario" returnType="double" visibility="public">
+          <Argument type="Usuario" name="u"/>
+          <Argument type="LocalDate" name="inicio"/>
+          <Argument type="LocalDate" name="fin"/>
+        </Method>
+        <Method name="calcularMontoAdevolver" returnType="double" visibility="public">
+          <Argument type="Reserva" name="r"/>
+          <Argument type="LocalDate" name="fechaCancel"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Usuario" package="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="dir" type="Direccion" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="propiedades" type="List&lt;Propiedad&gt;" visibility="private"/>
+        <Field name="reservasActivasProp" type="List&lt;Reserva&gt;" visibility="private"/>
+        <Field name="historialReservasProp" type="List&lt;Reserva&gt;" visibility="private"/>
+        <Field name="reservasActivasInq" type="List&lt;Reserva&gt;" visibility="private"/>
+        <Field name="historialReservasInq" type="List&lt;Reserva&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="Direccion" name="d"/>
+          <Argument type="int" name="dni"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPropiedadesDisponibles" returnType="List&lt;Propiedad&gt;" visibility="public">
+          <Argument type="DateLapse" name="periodo"/>
+        </Method>
+        <Method name="getReservasActivasPropietario" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="getReservasHistoricasPropietario" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="getReservasActivasInquilino" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="getReservasHistoricasInquilino" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="getTotalReservasPropietario" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="getTotalReservasInquilino" returnType="List&lt;Reserva&gt;" visibility="public"/>
+        <Method name="agregarPropiedad" returnType="void" visibility="public">
+          <Argument type="Propiedad" name="p"/>
+        </Method>
+        <Method name="eliminarPropiedad" returnType="boolean" visibility="public">
+          <Argument type="Propiedad" name="p"/>
+        </Method>
+        <Method name="agregarReservaPropietario" returnType="void" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="eliminarReservaPropietario" returnType="boolean" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="buscarReservaPropietario" returnType="Reserva" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="agregarReservaInquilino" returnType="void" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="eliminarReservaInquilino" returnType="boolean" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+        <Method name="buscarReservaInquilino" returnType="Reserva" visibility="public">
+          <Argument type="Reserva" name="r"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Moderada" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="direccion" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Direccion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="historialReservasProp" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Reserva&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Estricta" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="periodo" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fechasOcupadas" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;DateLapse&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Flexible" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.PoliticaCancelacion"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Estricta" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.PoliticaCancelacion"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Flexible" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dir" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Direccion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reservasActivasProp" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Reserva&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="politica" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.PoliticaCancelacion" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="propiedades" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Propiedad&gt;"/>
+    <HasRelation name="historialReservasInq" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Reserva&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Sistema" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="duenio" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Sistema" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.PoliticaCancelacion" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="duenio" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="usuarios" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Sistema" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Usuario&gt;"/>
+    <HasRelation name="inquilino" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.DateLapse" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Sistema" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="propiedad" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Propiedad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reservasActivasInq" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Reserva&gt;"/>
+    <UseRelation source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Usuario" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Reserva" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.Moderada" target="practicas.objetos.uno.ejercicio15_AlquilerDePropiedades.PoliticaCancelacion"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

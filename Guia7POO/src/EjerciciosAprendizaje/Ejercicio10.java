@@ -37,7 +37,7 @@ public class Ejercicio10 {
         
     }
     
-    
+
     public static void mostrarArreglo(double [] a){
         for (double elem: a){
             String num = ""+elem;

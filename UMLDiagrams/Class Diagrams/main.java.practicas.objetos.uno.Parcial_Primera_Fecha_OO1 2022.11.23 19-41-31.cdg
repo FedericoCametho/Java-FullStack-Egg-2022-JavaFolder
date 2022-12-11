@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="main.java.practicas.objetos.uno.Parcial_Primera_Fecha_OO1">
+  <ClassDiagramComponents>
+    <Class name="Automotor" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="766.0" yPosition="948.0">
+      <Fields>
+        <Field name="marca" type="String" visibility="private"/>
+        <Field name="modelo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="pat"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="mod"/>
+          <Argument type="LocalDate" name="fechaFab"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularPorcentaje" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Contribuyente" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="307.0" yPosition="497.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="localidad" type="String" visibility="private"/>
+        <Field name="bienes" type="List&lt;Bien&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dni"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="localidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="agregarBien" returnType="void" visibility="public">
+          <Argument type="Bien" name="b"/>
+        </Method>
+        <Method name="calcularImpuestos" returnType="double" visibility="public"/>
+        <Method name="getLocalidad" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Embarcacion" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="1364.0" yPosition="957.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="pat"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularPorcentaje" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Inmueble" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="320.0" yPosition="924.0">
+      <Fields>
+        <Field name="numeroPartida" type="int" visibility="private"/>
+        <Field name="valorLote" type="double" visibility="private"/>
+        <Field name="valorEdificacion" type="double" visibility="private"/>
+        <Field name="contribuyente" type="Contribuyente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="numPar"/>
+          <Argument type="double" name="valorL"/>
+          <Argument type="double" name="valorE"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularImpuesto" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sistema" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="344.0" yPosition="91.0">
+      <Fields>
+        <Field name="contribuyentes" type="List&lt;Contribuyente&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="altaContribuyente" returnType="Contribuyente" visibility="public">
+          <Argument type="String" name="nom"/>
+          <Argument type="String" name="dni"/>
+          <Argument type="String" name="email"/>
+          <Argument type="String" name="localidad"/>
+        </Method>
+        <Method name="altaInmueble" returnType="Inmueble" visibility="public">
+          <Argument type="int" name="numPar"/>
+          <Argument type="double" name="valorL"/>
+          <Argument type="double" name="valorE"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Method>
+        <Method name="altaAutomotor" returnType="Automotor" visibility="public">
+          <Argument type="String" name="pat"/>
+          <Argument type="String" name="marca"/>
+          <Argument type="String" name="mod"/>
+          <Argument type="LocalDate" name="fechaFab"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Method>
+        <Method name="altaEmbarcacion" returnType="Embarcacion" visibility="public">
+          <Argument type="String" name="pat"/>
+          <Argument type="String" name="nom"/>
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Method>
+        <Method name="calcularImpuestoContribuyente" returnType="double" visibility="public">
+          <Argument type="Contribuyente" name="c"/>
+        </Method>
+        <Method name="topContribuyentes" returnType="List&lt;Contribuyente&gt;" visibility="public">
+          <Argument type="String" name="loc"/>
+          <Argument type="int" name="n"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Vehiculo" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" isAbstract="true" xPosition="1080.0" yPosition="563.0">
+      <Fields>
+        <Field name="patente" type="String" visibility="private"/>
+        <Field name="fechaFabricacion" type="LocalDate" visibility="private"/>
+        <Field name="valor" type="double" visibility="private"/>
+        <Field name="contribuyente" type="Contribuyente" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="pat"/>
+          <Argument type="LocalDate" name="fecha"/>
+          <Argument type="double" name="valor"/>
+          <Argument type="Contribuyente" name="c"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="calcularImpuesto" returnType="double" visibility="public"/>
+        <Method name="calcularPorcentaje" returnType="double" visibility="public" isAbstract="true"/>
+        <Method name="getValor" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Bien" package="practicas.objetos.uno.Parcial_Primera_Fecha_OO1" visibility="public" xPosition="1146.0" yPosition="311.0">
+      <Methods>
+        <Method name="calcularImpuesto" returnType="double" visibility="public"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Sistema" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Embarcacion" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Inmueble" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Bien"/>
+    <UseRelation source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Sistema" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Embarcacion" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Vehiculo"/>
+    <IsRelation name="is" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Automotor" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Vehiculo"/>
+    <HasRelation name="contribuyente" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Inmueble" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Vehiculo" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Bien"/>
+    <HasRelation name="contribuyente" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Vehiculo" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="contribuyente" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Embarcacion" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Sistema" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Inmueble" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="contribuyentes" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Sistema" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Contribuyente&gt;"/>
+    <HasRelation name="bienes" source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Bien" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Bien&gt;"/>
+    <UseRelation source="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Contribuyente" target="practicas.objetos.uno.Parcial_Primera_Fecha_OO1.Bien" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
