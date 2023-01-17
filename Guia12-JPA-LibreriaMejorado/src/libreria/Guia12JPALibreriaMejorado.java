@@ -71,9 +71,10 @@ public class Guia12JPALibreriaMejorado {
                                     cService.crearCliente(dni, nom, ape, tel);
                                     break;
                             case 5:
-                                    Libro l = lService.buscarLibroPorISBN(seleccionarISBNLibro(lService, leer));
+                                    Libro l = lService.buscarLibroPorISBN(seleccionarISBNLibrosDisponibles(lService, leer));
                                     System.out.println("Ingrese el cliente que solicita el prestamo o el numero 0(cero) si el cliente no esta registrado");
                                     Long idCliente = seleccionarIDCliente(cService,leer);
+                                    Cliente c;
                                     if (idCliente == 0){
                                         System.out.println("*** PROCEDIMIENTO PARA DAR DE ALTA CLIENTE NUEVO ***");
                                         System.out.println("Ingrese el DNI del Cliente");
@@ -85,8 +86,11 @@ public class Guia12JPALibreriaMejorado {
                                         System.out.println("Ingrese el telefono del cliente");
                                         tel = leer.next();
                                         cService.crearCliente(dni, nom, ape, tel);
+                                        c = cService.buscarClientePorID(seleccionarIDCliente(cService,leer));
+                                    } else {
+                                        c = cService.buscarClientePorID(idCliente);
                                     }
-                                    Cliente c = cService.buscarClientePorID(seleccionarIDCliente(cService,leer));
+                                    
                                     
                                     pService.crearPrestamo(new Date() , l, c);
                         }
@@ -227,9 +231,16 @@ public class Guia12JPALibreriaMejorado {
                     }
                     
                     
-                }catch(Exception e){
+                    }catch(Exception e){
+                        throw e;
+                    }
+                    break;
+                case 8: try{
+                    pService.mostrarPrestamosCliente(cService.buscarClientePorID(seleccionarIDCliente(cService,leer)));
+                } catch(Exception e){
                     throw e;
                 }
+                break;
             }
             
             
@@ -241,6 +252,16 @@ public class Guia12JPALibreriaMejorado {
     public static Long seleccionarISBNLibro(LibroService lService, Scanner leer) throws Exception{
         try{
             lService.mostrarListadoLibros();
+            System.out.println("Ingrese el ISBN del libro");
+            return leer.nextLong();
+        } catch (Exception e){
+            throw e;
+        } 
+    }
+    
+    public static Long seleccionarISBNLibrosDisponibles(LibroService lService, Scanner leer) throws Exception{
+        try{
+            lService.mostrarListadoLibrosDisponibles();
             System.out.println("Ingrese el ISBN del libro");
             return leer.nextLong();
         } catch (Exception e){

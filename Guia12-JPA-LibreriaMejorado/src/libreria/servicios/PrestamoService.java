@@ -191,4 +191,22 @@ public class PrestamoService {
         }
     }
     
+    public void mostrarPrestamosCliente(Cliente c)throws Exception{
+        try{
+            if (c == null){
+                throw new Exception("Debe ingresar un cliente valido");
+            }
+            Collection<Prestamo> listado = this.DAO.listarPrestamosPorCliente(c);
+            if (listado.isEmpty()){
+                System.out.println("No se encontraron Prestamos para registrados para el cliente ingresado");
+            } else {
+                for (Prestamo p : listado){
+                    System.out.println(p.toString());
+                }
+            }
+        }catch(Exception e){
+            throw e;
+        }
+    }
+    
 }

@@ -3,6 +3,7 @@ package libreria.persistencia;
 
 import java.util.Collection;
 import java.util.Date;
+import libreria.entidades.Cliente;
 import libreria.entidades.Prestamo;
 
 
@@ -85,6 +86,19 @@ public class PrestamoDAO extends DAO{
                 throw new Exception("No se encontro ningun prestamo para el ID ingresado");
             }
             return p;
+        }catch(Exception e){
+            throw e;
+        }
+    }
+    
+    public Collection<Prestamo> listarPrestamosPorCliente(Cliente c) throws Exception{
+        try{
+            if (c == null){
+                throw new Exception("Debe indicar un cliente valido");
+            }
+            return em.createQuery("SELECT p FROM Prestamo p WHERE p.cliente = :cli").setParameter("cli",c).getResultList();
+            
+            
         }catch(Exception e){
             throw e;
         }
